@@ -1,0 +1,116 @@
+@import url('/src/css/textStylePicker.css');
+@import url('/src/css/colorPicker.css');
+
+* {
+    font-family: var(--primary-font)
+}
+.display1 {
+    font-size: var(--txt-display1-size);
+    font-weight: var(--txt-display-weight);
+}
+
+.display2 {
+    font-size: var(--txt-display2-size);
+    font-weight: var(--txt-display-weight);
+}
+
+.display3 {
+    font-size: var(--txt-display3-size);
+    font-weight: var(--txt-display-weight);
+}
+
+.display4 {
+    font-size: var(--txt-display4-size);
+    font-weight: var(--txt-display-weight);
+}
+
+.headline1 {
+    font-size: var(--txt-headline1-size);
+    font-weight: var(--txt-headline-weight);
+}
+
+.headline2 {
+    font-size: var(--txt-headline2-size);
+    font-weight: var(--txt-headline-weight);
+}
+
+.headline3 {
+    font-size: var(--txt-headline3-size);
+    font-weight: var(--txt-headline-weight);
+}
+
+.headline4 {
+    font-size: var(--txt-headline4-size);
+    font-weight: var(--txt-headline-weight);
+}
+
+.title1 {
+    font-size: var(--txt-title1-size);
+    font-weight: var(--txt-title-weight);
+}
+
+.title2 {
+    font-size: var(--txt-title2-size);
+    font-weight: var(--txt-title-weight);
+}
+
+.title3 {
+    font-size: var(--txt-title3-size);
+    font-weight: var(--txt-title-weight);
+}
+
+.title4 {
+    font-size: var(--txt-title4-size);
+    font-weight: var(--txt-title-weight);
+}
+
+.label1 {
+    font-size: var(--txt-label1-size);
+    font-weight: var(--txt-label-weight);
+}
+
+.label2 {
+    font-size: var(--txt-label2-size);
+    font-weight: var(--txt-label-weight);
+}
+
+.label3 {
+    font-size: var(--txt-label3-size);
+    font-weight: var(--txt-label-weight);
+}
+
+.label4 {
+    font-size: var(--txt-label4-size);
+    font-weight: var(--txt-label-weight);
+}
+
+.body1 {
+    font-size: var(--txt-body1-size);
+    font-weight: var(--txt-body-weight);
+}
+
+.body2 {
+    font-size: var(--txt-body2-size);
+    font-weight: var(--txt-body-weight);
+}
+
+.body3 {
+    font-size: var(--txt-body3-size);
+    font-weight: var(--txt-body-weight);
+}
+
+.body4 {
+    font-size: var(--txt-body4-size);
+    font-weight: var(--txt-body-weight);
+}
+
+/* sm */
+@media (min-width: 640px) { }
+/* md */
+@media (min-width: 765px) { }
+/* lg */
+@media (min-width: 1024px) { }
+/* xl */
+@media (min-width: 1280px) { }
+/* 2xl */
+@media (min-width: 1536px) { }

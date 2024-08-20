@@ -1,0 +1,34 @@
+@import url('https://fonts.googleapis.com/css2?family=Anuphan:wght@100..700&display=swap');
+
+:root {
+    /* Text size */
+    --txt-display1-size: 56px;
+    --txt-display2-size: 52px;
+    --txt-display3-size: 44px;
+    --txt-display4-size: 36px;
+    --txt-headline1-size: 36px;
+    --txt-headline2-size: 32px;
+    --txt-headline3-size: 28px;
+    --txt-headline4-size: 24px;
+    --txt-title1-size: 24px;
+    --txt-title2-size: 22px;
+    --txt-title3-size: 16px;
+    --txt-title4-size: 14px;
+    --txt-label1-size: 18px;
+    --txt-label2-size: 16px;
+    --txt-label3-size: 14px;
+    --txt-label4-size: 12px;
+    --txt-body1-size: 18px;
+    --txt-body2-size: 16px;
+    --txt-body3-size: 14px;
+    --txt-body4-size: 12px;
+    /* Text weight  */
+    --txt-display-weight: 600;
+    --txt-headline-weight: 700;
+    --txt-title-weight: 600;
+    --txt-label-weight: 500;
+    --txt-body-weight: 400;
+
+    /* font */
+    --primary-font : "Anuphan", sans-serif;
+}
