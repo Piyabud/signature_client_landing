@@ -1,26 +1,12 @@
 <template>
-  <div
-    class="flex justify-center items-center flex-col gap-y-4 md:gap-y-[40px] px-[18px] py-[40px] md:px-[33px] md:py-[40px] lg:px-[96px]"
-  >
-    <div
-      class="w-100 text-headline4 md:text-display3 text-[--Primary-Main] font-700 md:font-6000"
-    >
+  <div class="customer-container">
+    <div class="customer-title">
       ลูกค้าที่ใช้บริการ Creden eSign
     </div>
-    <div class="container mx-auto">
-      <div
-        class="grid grid-cols-6 lg:grid-cols-9 gap-y-4 gap-x-4 md:gap-y-[40px] justify-items-center items-center"
-      >
-        <div
-          v-for="(imgPath, index) in imagePath"
-          :key="index"
-          class=" flex justify-center items-center h-[64px] w-[32px] md:w-[52px] lg:w-[158px]"
-        >
-          <img
-            :src="imgPath"
-            :alt="'Item ' + (index + 1)"
-            class="max-w-full max-h-full object-contain"
-          />
+    <div class="customer-logos-container">
+      <div class="logos-grid">
+        <div v-for="(imgPath, index) in imagePath" :key="index" class="logo-item">
+          <img :src="imgPath" :alt="'Item ' + (index + 1)" class="logo-img" />
         </div>
       </div>
     </div>
@@ -30,26 +16,103 @@
 <script setup>
 const pathFile = "../../public/images/customers/";
 
-const imagePath = {
-  img1: pathFile + "tai.png",
-  img2: pathFile + "kasotosal.png",
-  img3: pathFile + "pea.png",
-  img4: pathFile + "pattanateedin.png",
-  img5: pathFile + "thaibispa.png",
-  img6: pathFile + "huasengheng.png",
-  img7: pathFile + "BLA.png",
-  img8: pathFile + "amway.png",
-  img9: pathFile + "giffarine.png",
-  img10: pathFile + "quickrissing.png",
-  img11: pathFile + "SAM.png",
-  img12: pathFile + "tvdirect.png",
-  img13: pathFile + "Wisesight.png",
-  img14: pathFile + "paysolution.png",
-  img15: pathFile + "tarad.png",
-  img16: pathFile + "AP.png",
-  img17: pathFile + "cantralpattana.png",
-  img18: pathFile + "NRCT.png",
-};
+const imagePath = [
+  pathFile + "tai.png",
+  pathFile + "kasotosal.png",
+  pathFile + "pea.png",
+  pathFile + "pattanateedin.png",
+  pathFile + "thaibispa.png",
+  pathFile + "huasengheng.png",
+  pathFile + "BLA.png",
+  pathFile + "amway.png",
+  pathFile + "giffarine.png",
+  pathFile + "quickrissing.png",
+  pathFile + "SAM.png",
+  pathFile + "tvdirect.png",
+  pathFile + "Wisesight.png",
+  pathFile + "paysolution.png",
+  pathFile + "tarad.png",
+  pathFile + "AP.png",
+  pathFile + "cantralpattana.png",
+  pathFile + "NRCT.png",
+];
 </script>
 
-<style scoped></style>
+<style scoped>
+.customer-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 1rem;
+  padding: 2.5rem 1.125rem;
+
+  /* Responsive styles */
+  @media (min-width: 768px) {
+    gap: 2.5rem;
+    padding: 2.5rem 2.0625rem;
+  }
+
+  @media (min-width: 1024px) {
+    padding: 2.5rem 6rem;
+  }
+}
+
+.customer-title {
+  width: 100%;
+  font-size: var(--headline4);
+  color: var(--Primary-Main);
+  font-weight: 700;
+
+  /* Responsive styles */
+  @media (min-width: 768px) {
+    font-size: var(--display3);
+    font-weight: 600;
+  }
+}
+
+.customer-logos-container {
+  max-width: 1280px;
+  margin: 0 auto;
+}
+
+.logos-grid {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 1rem;
+  justify-items: center;
+  align-items: center;
+
+  /* Responsive styles */
+  @media (min-width: 768px) {
+    gap: 2.5rem;
+  }
+
+  @media (min-width: 1024px) {
+    grid-template-columns: repeat(9, 1fr);
+  }
+}
+
+.logo-item {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 4rem;
+  width: 2rem;
+
+  /* Responsive styles */
+  @media (min-width: 768px) {
+    width: 3.25rem;
+  }
+
+  @media (min-width: 1024px) {
+    width: 9.875rem;
+  }
+}
+
+.logo-img {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+}
+</style>
