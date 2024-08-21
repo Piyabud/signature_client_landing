@@ -1,118 +1,71 @@
 <template>
-  <div class="customer-container">
-    <div class="customer-title">
-      ลูกค้าที่ใช้บริการ Creden eSign
-    </div>
-    <div class="customer-logos-container">
-      <div class="logos-grid">
-        <div v-for="(imgPath, index) in imagePath" :key="index" class="logo-item">
-          <img :src="imgPath" :alt="'Item ' + (index + 1)" class="logo-img" />
+    <div class="customer-container md:gap-y-[2.5rem] md:px-[2.0625rem] md:py-[2.5rem] lg:px-[6rem]
+">
+        <div class="customer-title  text-headline4 text-[--Primary-Main] font-700 md:font-6000 md:text-display3">
+            ลูกค้าที่ใช้บริการ Creden eSign
         </div>
-      </div>
+        <div class="customer-logos-container container mx-auto">
+                    <div class="logos-grid  lg:grid-cols-9  md:gap-y-[40px]">
+                    <div v-for="(imgPath, index) in imagePath" :key="index"
+                    class="logo-item h-[4rem] w-[2rem] md:w-[3.25rem] lg:w-[9.875rem]">
+                    <img :src="imgPath" :alt="'Item ' + (index + 1)" class="max-w-full max-h-full object-contain" />
+                </div>
+            </div>
+        </div>
     </div>
-  </div>
 </template>
 
 <script setup>
 const pathFile = "../../public/images/customers/";
 
 const imagePath = [
-  pathFile + "tai.png",
-  pathFile + "kasotosal.png",
-  pathFile + "pea.png",
-  pathFile + "pattanateedin.png",
-  pathFile + "thaibispa.png",
-  pathFile + "huasengheng.png",
-  pathFile + "BLA.png",
-  pathFile + "amway.png",
-  pathFile + "giffarine.png",
-  pathFile + "quickrissing.png",
-  pathFile + "SAM.png",
-  pathFile + "tvdirect.png",
-  pathFile + "Wisesight.png",
-  pathFile + "paysolution.png",
-  pathFile + "tarad.png",
-  pathFile + "AP.png",
-  pathFile + "cantralpattana.png",
-  pathFile + "NRCT.png",
+    pathFile + "tai.png",
+    pathFile + "kasotosal.png",
+    pathFile + "pea.png",
+    pathFile + "pattanateedin.png",
+    pathFile + "thaibispa.png",
+    pathFile + "huasengheng.png",
+    pathFile + "BLA.png",
+    pathFile + "amway.png",
+    pathFile + "giffarine.png",
+    pathFile + "quickrissing.png",
+    pathFile + "SAM.png",
+    pathFile + "tvdirect.png",
+    pathFile + "Wisesight.png",
+    pathFile + "paysolution.png",
+    pathFile + "tarad.png",
+    pathFile + "AP.png",
+    pathFile + "cantralpattana.png",
+    pathFile + "NRCT.png",
 ];
 </script>
 
 <style scoped>
 .customer-container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-  gap: 1rem;
-  padding: 2.5rem 1.125rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    row-gap: 1rem;
+    padding: 2.5rem 1.125rem;
 
-  /* Responsive styles */
-  @media (min-width: 768px) {
-    gap: 2.5rem;
-    padding: 2.5rem 2.0625rem;
-  }
-
-  @media (min-width: 1024px) {
-    padding: 2.5rem 6rem;
-  }
 }
 
 .customer-title {
-  width: 100%;
-  font-size: var(--headline4);
-  color: var(--Primary-Main);
-  font-weight: 700;
-
-  /* Responsive styles */
-  @media (min-width: 768px) {
-    font-size: var(--display3);
-    font-weight: 600;
-  }
-}
-
-.customer-logos-container {
-  max-width: 1280px;
-  margin: 0 auto;
+    width: full;
 }
 
 .logos-grid {
-  display: grid;
-  grid-template-columns: repeat(6, 1fr);
-  gap: 1rem;
-  justify-items: center;
-  align-items: center;
-
-  /* Responsive styles */
-  @media (min-width: 768px) {
-    gap: 2.5rem;
-  }
-
-  @media (min-width: 1024px) {
-    grid-template-columns: repeat(9, 1fr);
-  }
+    display: grid;
+    grid-template-columns: repeat(6, minmax(0, 1fr));
+    justify-items: center;
+    align-items: center;
+    gap: 1rem; /* เท่ากับ 16px */
 }
 
 .logo-item {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 4rem;
-  width: 2rem;
-
-  /* Responsive styles */
-  @media (min-width: 768px) {
-    width: 3.25rem;
-  }
-
-  @media (min-width: 1024px) {
-    width: 9.875rem;
-  }
-}
-
-.logo-img {
-  max-width: 100%;
-  max-height: 100%;
-  object-fit: contain;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 </style>
