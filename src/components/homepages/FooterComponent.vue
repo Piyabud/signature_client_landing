@@ -69,7 +69,7 @@
     </div>
     <!-- BOTTOM SECTION -->
     <div class="w-full bg-[var(--Primary-Main)]">
-        <div class="w-100 h-[0.625rem] bg-[var(--Light-4)]"></div>
+        <div class="w-100 h-[0.063rem] bg-[var(--Light-4)]"></div>
     </div>
     <div class="bottom-footer bg-[var(--Primary-Main)]">
         <div class="">© สงวนลิขสิทธิ์ 2564 ครีเดน เอเชีย จำกัด</div>
