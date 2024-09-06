@@ -1,5 +1,6 @@
 <template>
-    <nav class="w-full h-[4rem] lg:h-24 bg-[var(--Light-4)] lg:bg-[#95D7F7] px-6 lg:p-[0.75rem_1.875rem] xl:p-[0.75rem_5rem]">
+    <nav
+        class="w-full h-[4rem] lg:h-24 bg-[var(--Light-4)] lg:bg-[#95D7F7] px-6 lg:p-[0.75rem_1.875rem] xl:p-[0.75rem_5rem]">
         <div
             class="bg-[var(--Light-4)] w-full h-full flex flex-row justify-between lg:flex lg:justify-between lg:px-6 lg:items-center lg:gap-5 lg:border-2 lg:border-[rgba(92,184,255,0.50)] lg:rounded-full">
             <!-- GRP - 1 -->
@@ -28,7 +29,8 @@
                                     {{ item.text }}
                                 </a>
                             </div>
-                            <div v-for="(item, index) in additionalUserGroup1" :key="'additionalUserGroup1-' + index" class="text-title3 font-600 text-[var(--Primary-Main)] flex flex-row gap-4 justify-start items-center py-2">
+                            <div v-for="(item, index) in additionalUserGroup1" :key="'additionalUserGroup1-' + index"
+                                class="text-title3 font-600 text-[var(--Primary-Main)] flex flex-row gap-4 justify-start items-center py-2">
                                 <a :href="item.link">{{ item.text }}</a>
                                 <font-awesome-icon icon="chevron-right" />
                             </div>
@@ -44,7 +46,8 @@
                                     {{ item.text }}
                                 </a>
                             </div>
-                            <div v-for="(item, index) in additionalUserGroup2" :key="'additionalUserGroup2-' + index" class="text-title3 font-600 text-[var(--Primary-Main)] flex flex-row gap-4 justify-start items-center py-2 ">
+                            <div v-for="(item, index) in additionalUserGroup2" :key="'additionalUserGroup2-' + index"
+                                class="text-title3 font-600 text-[var(--Primary-Main)] flex flex-row gap-4 justify-start items-center py-2 ">
                                 <a :href="item.link">{{ item.text }}</a>
                                 <font-awesome-icon icon="chevron-right" />
                             </div>
@@ -69,7 +72,8 @@
                     <div class="button-nav">English</div>
                 </button>
                 <button class=" button-nav">เข้าสู่ระบบ</button>
-                <button class="p-[0.25rem_0.5rem] xl:p-[0.5rem_0.75rem] text-label4 font-500 xl:text-label3 bg-[var(--Secondary-Main)] text-[var(--Primary-Darker)] rounded-2xl ">
+                <button
+                    class="p-[0.25rem_0.5rem] xl:p-[0.5rem_0.75rem] text-label4 font-500 xl:text-label3 bg-[var(--Secondary-Main)] text-[var(--Primary-Darker)] rounded-2xl ">
                     สมัครสมาชิกฟรี
                 </button>
             </div>
@@ -82,32 +86,35 @@
 
         <!-- Menu for mobile -->
         <transition name="slide">
-    <div class="mobile-menu" v-if="isMenuOpen">
-        <div class="container-mobile">
-            <div class="shadow-burger-menu"></div>
-            <div class="body-burger-menu">
-                <div class="flex justify-between items-center mb-6">
-                    <img :src="credenLogo" alt="creden logo" class="h-[2rem]">
-                    <button @click="toggleMenuOpen" >
-                        <font-awesome-icon icon="xmark" class="h-[1.5rem]"/>
-                    </button>
-                </div>
-                <div class="btn-menu space-y-[8px]">
-                    <div v-for="(item, index) in navMenu" :key="'navMenu-' + index">
-                        <a :href="item.link"
-                            class="block p-[8px_12px] text-gray-700 text-label2 font-500 text-[var(--Darker-0)] hover:bg-[var(--Primary-Bg)] hover:text-[var(--Primary-Main)]">
-                            {{ item.text }}
-                        </a>
+            <div class="mobile-menu" v-if="isMenuOpen">
+                <div class="container-mobile">
+                    <div class="shadow-burger-menu"></div>
+                    <div class="body-burger-menu flex flex-col justify-between">
+                        <div class="">
+                            <div class="flex justify-between items-center mb-6">
+                                <img :src="credenLogo" alt="creden logo" class="h-[2rem]">
+                                <button @click="toggleMenuOpen">
+                                    <font-awesome-icon icon="xmark" class="h-[1.5rem]" />
+                                </button>
+                            </div>
+                            <div class="btn-menu space-y-[0.5rem]">
+                                <div v-for="(item, index) in navMenu" :key="'navMenu-' + index">
+                                    <a :href="item.link"
+                                        class="block p-[8px_12px] text-gray-700 text-label2 font-500 text-[var(--Darker-0)] hover:bg-[var(--Primary-Bg)] hover:text-[var(--Primary-Main)]">
+                                        {{ item.text }}
+                                    </a>
+                                    <AccordingMenu v-if="item.text === 'หน้าหลัก'" />
+                                </div>
+                            </div>
+                        </div>
+                        <div class=" space-y-[8px]">
+                            <div class="btn-members-manage">เข้าสู่ระบบ</div>
+                            <div class="btn-members-manage bg-[var(--Secondary-Main)]">สมัครสมาชิกฟรี</div>
+                        </div>
                     </div>
                 </div>
-                <div class=" space-y-[8px]">
-                    <div class="btn-members-manage">เข้าสู่ระบบ</div>
-                    <div class="btn-members-manage bg-[var(--Secondary-Main)]">สมัครสมาชิกฟรี</div>
-                </div>
             </div>
-        </div>
-    </div>
-</transition>
+        </transition>
 
     </nav>
 </template>
@@ -118,6 +125,7 @@ import { ref } from "vue";
 import credenLogo from "@/../public/images/logo/creden-logo.png";
 import thaiFlag from "@/../public/images/icons/thai-flag.avif";
 import engFlag from "@/../public/images/icons/eng-flag.png";
+import AccordingMenu from "@/components/homepages/header/AccordindMobileMenu.vue";
 
 const isMenuOpen = ref(false);
 const isThai = ref(true);
@@ -172,14 +180,13 @@ const toggleDropdown = () => {
 </script>
 
 <style scoped>
-
 .slide-enter-active {
     transition-delay: 1s;
     transition: transform 5s ease-out;
 }
 
 .slide-leave-active {
-    transition: transform 0.7s cubic-bezier(0.68, -0.55, 0.27, 1.55);
+    transition: transform 0.5s ease-out;
 }
 
 .slide-enter {
@@ -189,16 +196,17 @@ const toggleDropdown = () => {
 .slide-leave-to {
     transform: translateX(100%);
 }
-
+*{
+    font-size: var(--label4);
+    font-weight: 500;
+    color: var(--Darker-1);
+}
 .button-nav {
-  padding: 4px 8px;
-  font-size: var(--label4);
-  font-weight: 500;
-  color: var(--Darker-1);
-  white-space: nowrap;
+    padding: 4px 8px;
+    white-space: nowrap;
 }
 
-.img-switch-lang{
+.img-switch-lang {
     width: 1.5rem;
     border-radius: 0.25rem;
 }
@@ -206,7 +214,7 @@ const toggleDropdown = () => {
 .switch-lang-btn {
     padding: 0.25rem;
     display: flex;
-    align-items: center; 
+    align-items: center;
 }
 
 .mobile-menu {
@@ -230,7 +238,13 @@ const toggleDropdown = () => {
 .shadow-burger-menu {
     width: 20%;
     background-color: var(--Overlay-Gray);
-    opacity: 0.6;
+    opacity: 0.9;
+    transition: transform 0.05s ease-out, width 0.1s ease-out;
+}
+
+.slide-leave-active .shadow-burger-menu {
+    transform: scale(50); 
+    width: 100%;
 }
 
 .body-burger-menu {
@@ -238,9 +252,17 @@ const toggleDropdown = () => {
     background-color: var(--Light-4);
     overflow: auto;
     padding: 24px 16px;
+    transition-delay: 0.4s;
 }
 
-.btn-members-manage{
+.slide-leave-active .body-burger-menu {
+    transform: scale(20); 
+    width: 100%;
+}
+
+
+
+.btn-members-manage {
     display: flex;
     justify-content: center;
     align-content: center;
@@ -252,15 +274,14 @@ const toggleDropdown = () => {
 }
 
 @media (min-width: 1280px) {
-  .button-nav {
-    padding: 8px 0.75rem;
-    font-size: var(--label3);
-  }
+    .button-nav {
+        padding: 8px 0.75rem;
+        font-size: var(--label3);
+    }
 
-  .img-switch-lang{
-    width: 1.5rem;
-    border-radius: 0.25rem;
+    .img-switch-lang {
+        width: 1.5rem;
+        border-radius: 0.25rem;
+    }
 }
-}
-
 </style>
