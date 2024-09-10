@@ -83,12 +83,12 @@
                 <font-awesome-icon icon="bars" class="h-8 text-[var(--Primary-Main)]" />
             </div>
         </div>
+        <div class="box-shadow-mobile" v-if="isShadowVisible"></div>
 
         <!-- Menu for mobile -->
         <transition name="slide">
             <div class="mobile-menu" v-if="isMenuOpen">
                 <div class="container-mobile">
-                    <div class="shadow-burger-menu"></div>
                     <div class="body-burger-menu flex flex-col justify-between">
                         <div class="">
                             <div class="flex justify-between items-center mb-6">
@@ -108,7 +108,7 @@
                             </div>
 
                         </div>
-                        <div class=" space-y-[8px]">
+                        <div class="space-y-[8px] ">
                             <div class="btn-members-manage">เข้าสู่ระบบ</div>
                             <div class="btn-members-manage bg-[var(--Secondary-Main)]">สมัครสมาชิกฟรี</div>
                         </div>
@@ -129,6 +129,7 @@ import engFlag from "@/../public/images/icons/eng-flag.png";
 import AccordingMenu from "@/components/homepages/header/AccordindMobileMenu.vue";
 
 const isMenuOpen = ref(false);
+const isShadowVisible = ref(false);
 const isThai = ref(true);
 const isDropdownOpen = ref(false);
 
@@ -165,8 +166,16 @@ const additionalUserGroup2 = [
 ];
 
 const toggleMenuOpen = () => {
+    if (isMenuOpen.value) {
+        setTimeout(() => {
+            isShadowVisible.value = false;
+        }, 450);
+    } else {
+        isShadowVisible.value = true;
+    }
     isMenuOpen.value = !isMenuOpen.value;
 };
+
 
 const switchLang = () => {
     isThai.value = !isThai.value;
@@ -218,7 +227,7 @@ const toggleDropdown = () => {
 }
 
 .mobile-menu {
-    position: fixed;
+    position: absolute;
     top: 0;
     right: 0;
     width: 100vw;
@@ -229,18 +238,27 @@ const toggleDropdown = () => {
     overflow: hidden;
 }
 
+.box-shadow-mobile{
+    position: absolute;
+    top: 0;
+    left: 0;
+    background: var(--Overlay-Gray);
+    width: 100vw;
+    height: 100vh;
+    transition: opacity 4s ease-in-out; /* เพิ่ม transition */
+    opacity: 1;
+}
+
+.box-shadow-mobile.hidden {
+    opacity: 0; /* ซ่อนโดยการปรับ opacity */
+}
 .container-mobile {
     display: flex;
+    position: relative;
     width: 100%;
     height: 100%;
 }
 
-.shadow-burger-menu {
-    width: 20%;
-    background-color: var(--Overlay-Gray);
-    opacity: 0.9;
-    transition: transform 0.05s ease-out, width 0.1s ease-out;
-}
 
 .slide-leave-active .shadow-burger-menu {
     transform: scale(50); 
@@ -249,10 +267,15 @@ const toggleDropdown = () => {
 
 .body-burger-menu {
     width: 80%;
+    height: 100%;
     background-color: var(--Light-4);
     overflow: auto;
     padding: 24px 16px;
     transition-delay: 0.4s;
+    position: absolute;
+    right: 0;
+    top: 0;
+   
 }
 
 .slide-leave-active .body-burger-menu {

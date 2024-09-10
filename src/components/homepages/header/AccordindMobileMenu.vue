@@ -1,7 +1,7 @@
 <template>
     <ul>
         <!-- First Level Collapse Trigger with animation -->
-        <li class="mt-2 p-[8px_12px] flex justify-between items-center cursor-pointer "
+        <li class="mt-2 p-[8px_12px] flex justify-between items-center cursor-pointer text-[var(--Darker-1)] hover:bg-[var(--Primary-Bg)] hover:text-[var(--Primary-Main)]"
             @click="toggleCollapse('coll-setting', 'icon-setting')" id="tour_profile">
             กลุ่มผู้ใช้งาน
             <span class="ml-2 transition-transform duration-300" :class="iconRotate('icon-setting')">
@@ -13,7 +13,7 @@
         <transition name="collapse" @enter="enter" @leave="leave">
             <section v-if="collapseState['coll-setting']" class="" id="coll-setting">
                 <!-- Second Level Trigger 1 -->
-                <li class="p-[8px_12px] flex justify-between items-center cursor-pointer"
+                <li class="p-[8px_12px] flex justify-between items-center cursor-pointer "
                     @click="toggleCollapse('coll-sub1', 'icon-sub1')">
                     <span class="ml-4">กลุ่มผู้ใช้งาน</span>
                     <span class="transition-transform duration-300" :class="iconRotate('icon-sub1')">
@@ -151,7 +151,7 @@ const leave = (el) => {
 }
 
 .sub-menu:hover{
-   color: var(--Primary-Main);
+    color: var(--Primary-Main);
     background: var(--Primary-Bg);
 }
 
