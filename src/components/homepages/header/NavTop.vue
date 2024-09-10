@@ -97,15 +97,16 @@
                                     <font-awesome-icon icon="xmark" class="h-[1.5rem]" />
                                 </button>
                             </div>
-                            <div class="btn-menu space-y-[0.5rem]">
+                            <div class="btn-menu space-y-2">
                                 <div v-for="(item, index) in navMenu" :key="'navMenu-' + index">
                                     <a :href="item.link"
-                                        class="block p-[8px_12px] text-gray-700 text-label2 font-500 text-[var(--Darker-0)] hover:bg-[var(--Primary-Bg)] hover:text-[var(--Primary-Main)]">
+                                        class="block p-[8px_12px] text-label2 font-500 text-[var(--Darker-0)] hover:bg-[var(--Primary-Bg)] hover:text-[var(--Primary-Main)]">
                                         {{ item.text }}
                                     </a>
-                                    <AccordingMenu v-if="item.text === 'หน้าหลัก'" />
+                                    <AccordingMenu v-if="item.text === 'หน้าหลัก'" class="space-y-2"/>
                                 </div>
                             </div>
+
                         </div>
                         <div class=" space-y-[8px]">
                             <div class="btn-members-manage">เข้าสู่ระบบ</div>
@@ -133,7 +134,6 @@ const isDropdownOpen = ref(false);
 
 const navMenu = [
     { text: 'หน้าหลัก', link: '#' },
-    { text: 'กลุ่มผู้ใช้งาน', link: '#' },
     { text: 'ราคา', link: '#' },
     { text: 'คู่มือการใช้งาน', link: '#' },
     { text: 'บทความ', link: '#' },
