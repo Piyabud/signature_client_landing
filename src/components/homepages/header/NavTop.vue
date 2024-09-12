@@ -1,6 +1,6 @@
 <template>
     <nav
-        class="w-full h-[4rem] lg:h-24 bg-[var(--Light-4)] lg:bg-[#95D7F7] px-6 lg:p-[0.75rem_1.875rem] xl:p-[0.75rem_5rem]">
+        class="w-full h-[4rem] lg:h-24 px-6 lg:p-[0.75rem_1.875rem] xl:p-[0.75rem_5rem] bg-[var(--Light-4)] lg:bg-transparent">
         <div
             class="bg-[var(--Light-4)] w-full h-full flex flex-row justify-between lg:flex lg:justify-between lg:px-6 lg:items-center lg:gap-5 lg:border-2 lg:border-[rgba(92,184,255,0.50)] lg:rounded-full">
             <!-- GRP - 1 -->
@@ -17,7 +17,7 @@
                     </button>
                     <!-- กลุ่มผู้ใช้งาน PC -->
                     <div v-if="isDropdownOpen"
-                        class="absolute p-6 right-[-24rem] top-[3.5rem] w-[37.5rem] bg-white rounded-md shadow-lg z-50 grid grid-cols-2 gap-10">
+                        class="absolute p-6 right-[-24rem] top-[3.5rem] w-[37.5rem] bg-[var(--Light-4)] rounded-md shadow-lg z-50 grid grid-cols-2 gap-10">
                         <div class="grid grid-flow-row gap-2 whitespace-nowrap">
                             <div
                                 class="text-title3 font-600 text-[var(--Darker-0)] pb-4 border-b border-[var(--Primary-Lighter)]">
@@ -231,7 +231,7 @@ const toggleDropdown = () => {
     top: 0;
     right: 0;
     width: 100vw;
-    height: 100%;
+    height: 100vh;
     color: var(--Darker-1);
     margin-bottom: 1rem;
     z-index: 50;
