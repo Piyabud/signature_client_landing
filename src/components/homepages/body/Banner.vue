@@ -75,7 +75,7 @@
 
 
 <script setup>
-import bgBanner from "@/../public/images/banner/bg-banner.jpeg";
+import bgBanner from "@/../public/images/bg/bg-banner.jpeg";
 import bannerEkyc from "@/../public/images/banner/banner-ekyc.svg";
 import bannerProfile from "@/../public/images/banner/banner-profile.svg";
 import bannerUpload from "@/../public/images/banner/banner-upload.svg";
@@ -199,7 +199,7 @@ img {
   left: 0;
   width: 100%;
   height: 100%;
-  background: url('@/../public/images/banner/bg-banner.jpeg');
+  background: url('@/../public/images/bg/bg-banner.jpeg');
   background-position: center;
   opacity: 0.3;
   z-index: -1;
