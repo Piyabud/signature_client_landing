@@ -1,7 +1,5 @@
 <template>
-    <div>
-        <Customer />
-    </div>
+    <Customer />
 </template>
 
 <script setup>
