@@ -84,7 +84,6 @@
             </div>
         </div>
         <div class="box-shadow-mobile" v-if="isShadowVisible"></div>
-
         <!-- Menu for mobile -->
         <transition name="slide">
             <div class="mobile-menu" v-if="isMenuOpen">
@@ -234,7 +233,7 @@ const toggleDropdown = () => {
     height: 100vh;
     color: var(--Darker-1);
     margin-bottom: 1rem;
-    z-index: 50;
+    z-index: 99;
     overflow: hidden;
 }
 
@@ -247,6 +246,8 @@ const toggleDropdown = () => {
     height: 100vh;
     transition: opacity 4s ease-in-out; /* เพิ่ม transition */
     opacity: 1;
+    z-index: 88;
+
 }
 
 .box-shadow-mobile.hidden {
