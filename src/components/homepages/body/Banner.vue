@@ -201,6 +201,7 @@ img {
   height: 100%;
   background: url('@/../public/images/bg/bg-banner.jpeg');
   background-position: center;
+  background-size: cover; /* เพิ่มขนาดพื้นหลังให้เต็ม */
   opacity: 0.3;
   z-index: -1;
   pointer-events: none;

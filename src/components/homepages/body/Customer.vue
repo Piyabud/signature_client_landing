@@ -48,6 +48,7 @@ const imagePath = [
     align-items: center;
     row-gap: 1rem;
     padding: 2.5rem 1.125rem;
+    background-color: var(--Light-4);
 
 }
 
