@@ -21,6 +21,16 @@ import iosBanner from "@/../public/images/ISO/iso-cretified.jpg";
 
 </script>
 <style scoped>
+* {
+  user-select: none;
+  -webkit-user-select: none;
+  -moz-user-select: none; 
+  -ms-user-select: none; 
+}
+img {
+  user-select: none;
+  pointer-events: none;
+}
 .iso-container>img {
     width: 260px;
     height: 121.512px;

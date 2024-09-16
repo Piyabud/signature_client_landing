@@ -41,6 +41,16 @@ const data = [
 </script>
   
 <style scoped>
+* {
+  user-select: none;
+  -webkit-user-select: none;
+  -moz-user-select: none; 
+  -ms-user-select: none; 
+}
+img {
+  user-select: none;
+  pointer-events: none;
+}
 .card {
     padding: 16px 16px;
 }

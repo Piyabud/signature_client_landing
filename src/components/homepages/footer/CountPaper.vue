@@ -19,6 +19,16 @@
 </script>
 
 <style scoped>
+* {
+  user-select: none;
+  -webkit-user-select: none;
+  -moz-user-select: none; 
+  -ms-user-select: none; 
+}
+img {
+  user-select: none;
+  pointer-events: none;
+}
   .count-box{
     padding: 24px 18px;
   }

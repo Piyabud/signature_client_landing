@@ -63,6 +63,16 @@ const data = [
 </script>
   
 <style scoped>
+* {
+  user-select: none;
+  -webkit-user-select: none;
+  -moz-user-select: none; 
+  -ms-user-select: none; 
+}
+img {
+  user-select: none;
+  pointer-events: none;
+}
 .solution-container {
     position: relative;
     padding: 24px 16px;

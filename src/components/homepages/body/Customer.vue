@@ -41,6 +41,16 @@ const imagePath = [
 </script>
 
 <style scoped>
+* {
+  user-select: none;
+  -webkit-user-select: none;
+  -moz-user-select: none; 
+  -ms-user-select: none; 
+}
+img {
+  user-select: none;
+  pointer-events: none;
+}
 .customer-container {
     display: flex;
     flex-direction: column;
