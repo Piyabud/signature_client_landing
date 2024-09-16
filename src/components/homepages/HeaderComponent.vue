@@ -1,11 +1,13 @@
-<script setup>
-import NavTop from "./header/NavTop.vue";
-</script>
-
 <template>
-  <div>
     <NavTop />
-  </div>
+    <Banner />
 </template>
 
-<style scoped></style>
+<script setup>
+import NavTop from "./header/NavTop.vue";
+import Banner from './body/Banner.vue';
+</script>
+
+<style scoped>
+
+</style>

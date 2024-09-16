@@ -30,6 +30,7 @@ module.exports = {
       fontWeight: {
         700: "var(--txt-headline-weight)",
         600: "var(--txt-title-weight)",
+        600: "var(--txt-display-weight)",
         500: "var(--txt-label-weight)",
         400: "var(--txt-body-weight)",
       },
