@@ -5,33 +5,39 @@
         <p>คุณกำลังช่วยให้ประหยัดกระดาษได้</p>
       </div>
       <div class="total flex flex-row justify-center items-center gap-[8px]">
-        <p class="paper-count">xxx,xxx แผ่น</p>
+        <p class="paper-count">{{ paperCount }}</p>
       </div>
-      <div class="date ">
-        <p class="">วันที่อัปเดตล่าสุด : DD / MM / YYYY</p>
+      <div class="date">
+        <p>วันที่อัปเดตล่าสุด : {{ updateDate }}</p>
       </div>
     </div>
   </div>
   <div class="bg-box"></div>
 </template>
 
-<script setup>
+
+<script setup lang="ts">
+import { ref } from 'vue';
+
+// Data (mock values for demonstration)
+const paperCount = ref('xxx,xxx แผ่น');
+const updateDate = ref('DD / MM / YYYY');
 </script>
 
 <style scoped>
 * {
   user-select: none;
   -webkit-user-select: none;
-  -moz-user-select: none; 
-  -ms-user-select: none; 
+  -moz-user-select: none;
+  -ms-user-select: none;
 }
 img {
   user-select: none;
   pointer-events: none;
 }
-  .count-box{
-    padding: 24px 18px;
-  }
+.count-box {
+  padding: 24px 18px;
+}
 
 .bg-box {
   position: relative;
@@ -72,10 +78,9 @@ img {
   font-weight: var(--txt-headline-weight);
 }
 
-
 /* md */
 @media (min-width: 765px) {
-  .count-box{
+  .count-box {
     padding: 40px 33px;
   }
   .bg-box {
@@ -92,7 +97,7 @@ img {
 
 /* lg */
 @media (min-width: 1024px) {
-  .count-box{
+  .count-box {
     padding: 40px 69px;
   }
   .bg-box {

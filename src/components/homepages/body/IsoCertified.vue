@@ -16,21 +16,24 @@
         </div>
     </div>
 </template>
-<script setup>
-import iosBanner from "@/../public/images/ISO/iso-cretified.jpg";
+<script lang="ts" setup>
+
+const iosBanner = new URL('@/../public/images/ISO/iso-cretified.jpg', import.meta.url).href;
 
 </script>
 <style scoped>
 * {
-  user-select: none;
-  -webkit-user-select: none;
-  -moz-user-select: none; 
-  -ms-user-select: none; 
+    user-select: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
 }
+
 img {
-  user-select: none;
-  pointer-events: none;
+    user-select: none;
+    pointer-events: none;
 }
+
 .iso-container>img {
     width: 260px;
     height: 121.512px;
@@ -43,7 +46,7 @@ img {
     padding: 24px 16px;
     align-items: center;
     gap: 24px;
-    
+
 }
 
 
@@ -90,7 +93,7 @@ img {
 }
 
 /* PC */
-@media (min-width: 1024px){
+@media (min-width: 1024px) {
     .certified-box {
         padding: 40px 96px;
         display: flex;

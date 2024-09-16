@@ -9,10 +9,10 @@
             </div>
             <!-- GRP - 2 -->
             <ul class=" hidden lg:flex justify-center items-center gap-2 xl:gap-5">
-                <button class=" button-nav">หน้าหลัก</button>
+                <button class="button-nav">หน้าหลัก</button>
                 <div class="relative" @click="toggleDropdown">
                     <button class="flex place-items-center">
-                        <span class=" button-nav">กลุ่มผู้ใช้งาน</span>
+                        <span class="button-nav">กลุ่มผู้ใช้งาน</span>
                         <font-awesome-icon icon="chevron-down" />
                     </button>
                     <!-- กลุ่มผู้ใช้งาน PC -->
@@ -53,27 +53,25 @@
                             </div>
                         </div>
                     </div>
-
-
                 </div>
-                <button class=" button-nav">ราคา</button>
-                <button class=" button-nav">คู่มือการใช้งาน</button>
-                <button class=" button-nav">บทความ</button>
-                <button class=" button-nav">ติดต่อเรา</button>
+                <button class="button-nav">ราคา</button>
+                <button class="button-nav">คู่มือการใช้งาน</button>
+                <button class="button-nav">บทความ</button>
+                <button class="button-nav">ติดต่อเรา</button>
             </ul>
             <!-- GRP-3 -->
             <div class="hidden text-label3 font-500 lg:flex justify-center items-center gap-2">
-                <button v-if="isThai" class="switch-lang-btn " @click="switchLang()">
+                <button v-if="isThai" class="switch-lang-btn" @click="switchLang">
                     <img :src="thaiFlag" alt="thaiFlag" class="img-switch-lang" />
-                    <div class=" button-nav">ภาษาไทย</div>
+                    <div class="button-nav">ภาษาไทย</div>
                 </button>
-                <button v-if="!isThai" class="switch-lang-btn " @click="switchLang()">
+                <button v-if="!isThai" class="switch-lang-btn" @click="switchLang">
                     <img :src="engFlag" alt="engFlag" class="img-switch-lang" />
                     <div class="button-nav">English</div>
                 </button>
-                <button class=" button-nav">เข้าสู่ระบบ</button>
+                <button class="button-nav">เข้าสู่ระบบ</button>
                 <button
-                    class="p-[0.25rem_0.5rem] xl:p-[0.5rem_0.75rem] text-label4 font-500 xl:text-label3 bg-[var(--Secondary-Main)] text-[var(--Primary-Darker)] rounded-2xl ">
+                    class="p-[0.25rem_0.5rem] xl:p-[0.5rem_0.75rem] text-label4 font-500 xl:text-label3 bg-[var(--Secondary-Main)] text-[var(--Primary-Darker)] rounded-2xl">
                     สมัครสมาชิกฟรี
                 </button>
             </div>
@@ -105,9 +103,8 @@
                                     <AccordingMenu v-if="item.text === 'หน้าหลัก'" class="space-y-2"/>
                                 </div>
                             </div>
-
                         </div>
-                        <div class="space-y-[8px] ">
+                        <div class="space-y-[8px]">
                             <div class="btn-members-manage">เข้าสู่ระบบ</div>
                             <div class="btn-members-manage bg-[var(--Secondary-Main)]">สมัครสมาชิกฟรี</div>
                         </div>
@@ -115,32 +112,46 @@
                 </div>
             </div>
         </transition>
-
     </nav>
 </template>
 
+<script setup lang="ts">
+import { ref } from 'vue';
+import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome';
+import AccordingMenu from '@/components/homepages/header/AccordindMobileMenu.vue';
 
-<script setup>
-import { ref } from "vue";
-import credenLogo from "@/../public/images/logo/creden-logo.png";
-import thaiFlag from "@/../public/images/icons/thai-flag.avif";
-import engFlag from "@/../public/images/icons/eng-flag.png";
-import AccordingMenu from "@/components/homepages/header/AccordindMobileMenu.vue";
 
-const isMenuOpen = ref(false);
-const isShadowVisible = ref(false);
-const isThai = ref(true);
-const isDropdownOpen = ref(false);
+const credenLogo = new URL('@/../public/images/logo/creden-logo.png', import.meta.url).href;
+const thaiFlag = new URL('@/../public/images/icons/thai-flag.avif', import.meta.url).href;
+const engFlag = new URL('@/../public/images/icons/eng-flag.png', import.meta.url).href;
 
-const navMenu = [
+
+// Define types
+interface NavItem {
+    text: string;
+    link: string;
+}
+
+interface UserGroupItem {
+    text: string;
+    link: string;
+}
+
+// Reactive states
+const isMenuOpen = ref<boolean>(false);
+const isShadowVisible = ref<boolean>(false);
+const isThai = ref<boolean>(true);
+const isDropdownOpen = ref<boolean>(false);
+
+const navMenu: NavItem[] = [
     { text: 'หน้าหลัก', link: '#' },
     { text: 'ราคา', link: '#' },
     { text: 'คู่มือการใช้งาน', link: '#' },
     { text: 'บทความ', link: '#' },
     { text: 'ติดต่อเรา', link: '#' },
-]
+];
 
-const userGroup1 = [
+const userGroup1: UserGroupItem[] = [
     { text: 'ฝ่ายขายและการตลาด', link: '#' },
     { text: 'ฝ่ายทรัพยากรบุคคล', link: '#' },
     { text: 'ฝ่ายบัญชี', link: '#' },
@@ -148,7 +159,7 @@ const userGroup1 = [
     { text: 'ฝ่ายบริการลูกค้า', link: '#' },
 ];
 
-const userGroup2 = [
+const userGroup2: UserGroupItem[] = [
     { text: 'การเช่าหรือซื้อขายอสังหาริมทรัพย์', link: '#' },
     { text: 'บริการทางการเงิน', link: '#' },
     { text: 'ประกันภัย', link: '#' },
@@ -156,14 +167,15 @@ const userGroup2 = [
     { text: 'สถานพยาบาล', link: '#' },
 ];
 
-const additionalUserGroup1 = [
+const additionalUserGroup1: UserGroupItem[] = [
     { text: 'กลุ่มผู้ใช้งานทั้งหมด', link: '#' },
 ];
 
-const additionalUserGroup2 = [
+const additionalUserGroup2: UserGroupItem[] = [
     { text: 'กลุ่มธุรกิจและอุตสาหกรรมทั้งหมด', link: '#' },
 ];
 
+// Methods
 const toggleMenuOpen = () => {
     if (isMenuOpen.value) {
         setTimeout(() => {
@@ -175,7 +187,6 @@ const toggleMenuOpen = () => {
     isMenuOpen.value = !isMenuOpen.value;
 };
 
-
 const switchLang = () => {
     isThai.value = !isThai.value;
 };
@@ -183,11 +194,10 @@ const switchLang = () => {
 const toggleDropdown = () => {
     isDropdownOpen.value = !isDropdownOpen.value;
 };
-
-
 </script>
 
 <style scoped>
+/* Add your styles here */
 .slide-enter-active {
     transition-delay: 1s;
     transition: transform 5s ease-out;
@@ -204,11 +214,13 @@ const toggleDropdown = () => {
 .slide-leave-to {
     transform: translateX(100%);
 }
-*{
+
+* {
     font-size: var(--label4);
     font-weight: 500;
     color: var(--Darker-1);
 }
+
 .button-nav {
     padding: 4px 8px;
     white-space: nowrap;
@@ -237,7 +249,7 @@ const toggleDropdown = () => {
     overflow: hidden;
 }
 
-.box-shadow-mobile{
+.box-shadow-mobile {
     position: absolute;
     top: 0;
     left: 0;
@@ -247,12 +259,12 @@ const toggleDropdown = () => {
     transition: opacity 4s ease-in-out; /* เพิ่ม transition */
     opacity: 1;
     z-index: 88;
-
 }
 
 .box-shadow-mobile.hidden {
     opacity: 0; /* ซ่อนโดยการปรับ opacity */
 }
+
 .container-mobile {
     display: flex;
     position: relative;
@@ -260,9 +272,8 @@ const toggleDropdown = () => {
     height: 100%;
 }
 
-
 .slide-leave-active .shadow-burger-menu {
-    transform: scale(50); 
+    transform: scale(50);
     width: 100%;
 }
 
@@ -276,15 +287,12 @@ const toggleDropdown = () => {
     position: absolute;
     right: 0;
     top: 0;
-   
 }
 
 .slide-leave-active .body-burger-menu {
-    transform: scale(20); 
+    transform: scale(20);
     width: 100%;
 }
-
-
 
 .btn-members-manage {
     display: flex;
