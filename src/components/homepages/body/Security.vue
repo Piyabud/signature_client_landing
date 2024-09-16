@@ -49,13 +49,7 @@ const data = [
     margin-bottom: 16px;
 }
 
-.gradient-text {
-    background: var(--Gradient-Primary, linear-gradient(147deg, #5CB8FF 6.95%, #0767B1 93.05%));
-    background-clip: text;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    text-fill-color: transparent;
-}
+
 
 .security-box {
     padding: 24px 18px;

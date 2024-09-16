@@ -20,12 +20,12 @@
 </template>
   
 <script setup>
-import img1 from "@/../public/images/solution/solution-img1.png";
-import img2 from "@/../public/images/solution/solution-img2.png";
-import img3 from "@/../public/images/solution/solution-img3.png";
-import img4 from "@/../public/images/solution/solution-img4.png";
-import img5 from "@/../public/images/solution/solution-img5.png";
-import img6 from "@/../public/images/solution/solution-img6.png";
+import img1 from "@/../public/images/solution/solution-img1.svg";
+import img2 from "@/../public/images/solution/solution-img2.svg";
+import img3 from "@/../public/images/solution/solution-img3.svg";
+import img4 from "@/../public/images/solution/solution-img4.svg";
+import img5 from "@/../public/images/solution/solution-img5.svg";
+import img6 from "@/../public/images/solution/solution-img6.svg";
 
 const data = [
     {

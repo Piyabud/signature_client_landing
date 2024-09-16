@@ -80,7 +80,7 @@ import iosBanner from "@/../public/images/ISO/iso-cretified.jpg";
 }
 
 /* PC */
-@media (min-width: 837px) {
+@media (min-width: 1024px){
     .certified-box {
         padding: 40px 96px;
         display: flex;
@@ -90,11 +90,11 @@ import iosBanner from "@/../public/images/ISO/iso-cretified.jpg";
 
     .iso-container {
         flex-direction: row;
-        width: 1388px;
-        width: 1436px;
         padding: 16px 24px;
         gap: 24px;
-        justify-content: space-around;
+        justify-content: space-between;
+        width: 1000px;
+
     }
 
     hr {

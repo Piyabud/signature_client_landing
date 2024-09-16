@@ -154,6 +154,13 @@
     z-index: -1;
 }
 
+.gradient-text {
+    background: var(--Gradient-Primary, linear-gradient(147deg, #5CB8FF 6.95%, #0767B1 93.05%));
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
 /* sm */
 @media (min-width: 640px) { }
 /* md */
