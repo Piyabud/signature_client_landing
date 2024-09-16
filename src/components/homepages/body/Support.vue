@@ -104,7 +104,7 @@ const toggleAccordion = (index: number) => {
 const showControls = () => {
     const video = document.querySelector("video");
     if (video) {
-        video.controls = true;
+        video.controls = false;
     }
 };
 
@@ -253,7 +253,7 @@ const leave = (el: HTMLElement, done: () => void) => {
         align-items: start;
     }
     .video-label{
-        left: 1.5rem;
+        left: 3.5rem;
     }
 }
 </style>

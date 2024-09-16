@@ -1,6 +1,5 @@
 <template>
-    <div class="customer-container md:gap-y-[2.5rem] md:px-[2.0625rem] md:py-[2.5rem] lg:px-[6rem]
-">
+    <div class="customer-container md:gap-y-[2.5rem] md:px-[2.0625rem] md:py-[2.5rem] lg:px-[6rem]">
         <div class="customer-title  text-headline4 text-[--Primary-Main] font-700 md:font-6000 md:text-display3">
             ลูกค้าที่ใช้บริการ Creden eSign
         </div>
@@ -77,5 +76,13 @@ img {
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+@media (min-width: 1024px) {
+    .logos-grid {
+        grid-template-columns: repeat(9, minmax(0, 1fr)); /* 9 columns */
+        grid-template-rows: repeat(2, auto); /* 2 rows */
+        gap: 40px 1rem; /* 40px gap between rows and 1rem between columns */
+    }
 }
 </style>
