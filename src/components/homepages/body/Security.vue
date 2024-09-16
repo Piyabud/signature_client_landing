@@ -1,20 +1,4 @@
-<template>
-    <div class="security-box flex flex-col gap-[16px] md:gap-[40px]">
-        <div class="text-title flex justify-center items-center text-center">
-            <p> มั่นใจในเรื่องของความปลอดภัยได้เพราะเรามี</p>
-        </div>
-        <div class="grid grid-cols-1 lg:grid-cols-3 gap-4 lg:gap-6">
-            <div v-for="(item, index) in data" :key="index"
-                class="card borderYB45 flex flex-col items-center justify-evenly md:flex-row lg:flex-col">
-                <img :src="item.img" alt="Security Image" class="w-32 h-32 object-cover" />
-                <div class="gradient-text">
-                    <div class="text-th  ">{{ item.th }}</div>
-                    <div class="text-en  ">{{ item.en }}</div>
-                </div>
-            </div>
-        </div>
-    </div>
-</template>
+
 <template>
     <div class="security-box flex flex-col gap-[16px] md:gap-[40px]">
         <div class="text-title flex justify-center items-center text-center">

@@ -73,21 +73,19 @@
 </template>
 
 
-
 <script setup>
+import { ref, onMounted, onUnmounted } from 'vue';
 import bgBanner from "@/../public/images/bg/bg-banner.jpeg";
 import bannerEkyc from "@/../public/images/banner/banner-ekyc.svg";
 import bannerProfile from "@/../public/images/banner/banner-profile.svg";
 import bannerUpload from "@/../public/images/banner/banner-upload.svg";
 import bannerDashboard from "@/../public/images/banner/banner-dashboard.svg";
 import bannerTemplate from "@/../public/images/banner/banner-template.svg";
-import { ref } from 'vue';
-
 
 const currentPage = ref(1);
 let startX = 0;
 let isDragging = false;
-
+let autoSlideInterval = null;
 
 function goToPage(page) {
   currentPage.value = page;
@@ -95,16 +93,19 @@ function goToPage(page) {
 
 function startTouch(event) {
   startX = event.touches[0].clientX;
+  stopAutoSlide(); // Stop auto-slide when user interacts
 }
 
 function endTouch(event) {
   const endX = event.changedTouches[0].clientX;
   handleSwipe(endX);
+  startAutoSlide(); // Restart auto-slide after interaction
 }
 
 function startDrag(event) {
   startX = event.clientX;
   isDragging = true;
+  stopAutoSlide(); // Stop auto-slide when user interacts
 }
 
 function endDrag(event) {
@@ -113,16 +114,16 @@ function endDrag(event) {
     handleSwipe(endX);
     isDragging = false;
   }
+  startAutoSlide(); // Restart auto-slide after interaction
 }
 
 function drag(event) {
   if (isDragging) {
     const deltaX = event.clientX - startX;
     const pageWidth = document.querySelector('.page').offsetWidth;
-    document.querySelector('.slider').style.transform = `translateX(${-(currentPage - 1) * pageWidth + deltaX}px)`;
+    document.querySelector('.slider').style.transform = `translateX(${-(currentPage.value - 1) * pageWidth + deltaX}px)`;
   }
 }
-
 
 function handleSwipe(endX) {
   const diffX = startX - endX;
@@ -135,6 +136,28 @@ function handleSwipe(endX) {
   }
 }
 
+function startAutoSlide() {
+  if (!autoSlideInterval) {
+    autoSlideInterval = setInterval(() => {
+      currentPage.value = currentPage.value === 1 ? 2 : 1;
+    }, 25000);
+  }
+}
+
+function stopAutoSlide() {
+  if (autoSlideInterval) {
+    clearInterval(autoSlideInterval);
+    autoSlideInterval = null;
+  }
+}
+
+onMounted(() => {
+  startAutoSlide();
+});
+
+onUnmounted(() => {
+  stopAutoSlide();
+});
 </script>
 
 <style scoped>
