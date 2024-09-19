@@ -38,16 +38,23 @@
 
     </div>
 </template>
-  
-<script setup>
-import { ref } from 'vue';
-import media01 from "@/../public/video/support-01.mp4";
-import media02 from "@/../public/video/support-02.mp4";
-import media03 from "@/../public/video/support-03.mp4";
-import media04 from "@/../public/video/support-04.mp4";
-import media05 from "@/../public/video/support-05.mp4";
 
-const data = [
+<script lang="ts" setup>
+import { ref } from 'vue';
+const media01 = new URL('@/../public/video/support-01.mp4', import.meta.url).href;
+const media02 = new URL('@/../public/video/support-02.mp4', import.meta.url).href;
+const media03 = new URL('@/../public/video/support-03.mp4', import.meta.url).href;
+const media04 = new URL('@/../public/video/support-04.mp4', import.meta.url).href;
+const media05 = new URL('@/../public/video/support-05.mp4', import.meta.url).href;
+
+
+interface AccordionItem {
+    title: string;
+    description: string;
+    media: string;
+}
+
+const data: AccordionItem[] = [
     {
         title: 'ฝ่ายขายและการตลาด',
         description: 'ประหยัดเวลาดำเนินงานด้านเอกสาร สามารถเสนอขายได้อย่างรวดเร็ว  และเพิ่มโอกาสในการเข้าถึงลูกค้ามากขึ้น',
@@ -76,14 +83,14 @@ const data = [
 ];
 
 // Active accordion index - Set to 0 for the first accordion to be open by default
-const activeIndex = ref(0);
+const activeIndex = ref<number | null>(0);
 
 // Media state
-const currentMedia = ref(data[0].media);
-const currentDescription = ref(data[0].title);
+const currentMedia = ref<string>(data[0].media);
+const currentDescription = ref<string>(data[0].title);
 
 // Toggle accordion function
-const toggleAccordion = (index) => {
+const toggleAccordion = (index: number) => {
     activeIndex.value = activeIndex.value === index ? null : index;
 
     // Set media and description according to the opened accordion
@@ -96,34 +103,39 @@ const toggleAccordion = (index) => {
 // Show controls on hover
 const showControls = () => {
     const video = document.querySelector("video");
-    video.controls = true;
+    if (video) {
+        video.controls = false;
+    }
 };
 
 // Hide controls when not hovering
 const hideControls = () => {
     const video = document.querySelector("video");
-    video.controls = false;
+    if (video) {
+        video.controls = false;
+    }
 };
 
 // Transition hooks for fade effect
-const beforeEnter = (el) => {
-    el.style.opacity = 0;
+const beforeEnter = (el: HTMLElement) => {
+    el.style.opacity = '0';
+    
 };
 
-const enter = (el, done) => {
+const enter = (el: HTMLElement, done: () => void) => {
     el.offsetHeight;
     el.style.transition = 'opacity 0.5s';
-    el.style.opacity = 1;
+    el.style.opacity = '1';
     done();
 };
 
-const leave = (el, done) => {
+const leave = (el: HTMLElement, done: () => void) => {
     el.style.transition = 'opacity 0.5s';
-    el.style.opacity = 0;
+    el.style.opacity = '0';
     done();
 };
 </script>
-  
+
 <style scoped>
 .support-box {
     padding: 24px 18px;
@@ -241,7 +253,7 @@ const leave = (el, done) => {
         align-items: start;
     }
     .video-label{
-        left: 1.5rem;
+        left: 3.5rem;
     }
 }
 </style>

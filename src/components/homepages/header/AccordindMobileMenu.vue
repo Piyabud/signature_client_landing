@@ -11,35 +11,25 @@
 
         <!-- First Level Collapsible Content -->
         <transition name="collapse" @enter="enter" @leave="leave">
-            <section v-if="collapseState['coll-setting']" class="" id="coll-setting">
+            <section v-if="collapseState['coll-setting']" id="coll-setting">
                 <!-- Second Level Trigger 1 -->
-                <li class="p-[8px_12px] flex justify-between items-center cursor-pointer "
+                <li class="p-[8px_12px] flex justify-between items-center cursor-pointer"
                     @click="toggleCollapse('coll-sub1', 'icon-sub1')">
                     <span class="ml-4">กลุ่มผู้ใช้งาน</span>
                     <span class="transition-transform duration-300" :class="iconRotate('icon-sub1')">
-                        <font-awesome-icon :icon="iconState['icon-sub1']" id="icon-setting" />
+                        <font-awesome-icon :icon="iconState['icon-sub1']" />
                     </span>
                 </li>
 
                 <!-- Second Level Collapsible Content 1 -->
                 <transition name="collapse" @enter="enter" @leave="leave">
                     <section v-if="collapseState['coll-sub1']" class="overflow-hidden pl-4">
-                        <li class="sub-menu  py-2">
-                            <span class="ml-6">ฝ่ายขายและการตลาด</span>
-                        </li>
-                        <li class="sub-menu  py-2">
-                            <span class="ml-6">ฝ่ายทรัพยากรบุคคล</span>
-                        </li>
-                        <li class="sub-menu  py-2">
-                            <span class="ml-6">ฝ่ายบัญชี</span>
-                        </li>
-                        <li class="sub-menu  py-2">
-                            <span class="ml-6">ฝ่ายกฎหมาย</span>
-                        </li>
-                        <li class="sub-menu  py-2">
-                            <span class="ml-6">ฝ่ายบริการลูกค้า</span>
-                        </li>
-                        <li class="sub-menu  py-2 text-title3 text-[var(--Primary-Main)]">
+                        <li class="sub-menu py-2"><span class="ml-6">ฝ่ายขายและการตลาด</span></li>
+                        <li class="sub-menu py-2"><span class="ml-6">ฝ่ายทรัพยากรบุคคล</span></li>
+                        <li class="sub-menu py-2"><span class="ml-6">ฝ่ายบัญชี</span></li>
+                        <li class="sub-menu py-2"><span class="ml-6">ฝ่ายกฎหมาย</span></li>
+                        <li class="sub-menu py-2"><span class="ml-6">ฝ่ายบริการลูกค้า</span></li>
+                        <li class="sub-menu py-2 text-title3 text-[var(--Primary-Main)]">
                             <span class="ml-6 font-600">กลุ่มผู้ใช้งานทั้งหมด</span>
                             <font-awesome-icon icon="chevron-right" class="ml-4 font-900" />
                         </li>
@@ -47,33 +37,23 @@
                 </transition>
 
                 <!-- Second Level Trigger 2 -->
-                <li class="p-[8px_12px] flex justify-between items-center cursor-pointer "
+                <li class="p-[8px_12px] flex justify-between items-center cursor-pointer"
                     @click="toggleCollapse('coll-sub2', 'icon-sub2')">
-                    <span class="ml-4">กลุ่มธุรกิจและอุตสาหกรรม </span>
+                    <span class="ml-4">กลุ่มธุรกิจและอุตสาหกรรม</span>
                     <span class="transition-transform duration-300" :class="iconRotate('icon-sub2')">
-                        <font-awesome-icon :icon="iconState['icon-sub2']" id="icon-setting" />
+                        <font-awesome-icon :icon="iconState['icon-sub2']" />
                     </span>
                 </li>
 
                 <!-- Second Level Collapsible Content 2 -->
                 <transition name="collapse" @enter="enter" @leave="leave">
                     <section v-if="collapseState['coll-sub2']" class="overflow-hidden pl-4">
-                        <li class="sub-menu  py-2">
-                            <span class="ml-6">การเช่าหรือซื้อขายอสังหาริมทรัพย์</span>
-                        </li>
-                        <li class="sub-menu  pt-2">
-                            <span class="ml-6">บริการทางการเงิน</span>
-                        </li>
-                        <li class="sub-menu  pt-2">
-                            <span class="ml-6">ประกันภัย</span>
-                        </li>
-                        <li class="sub-menu  pt-2">
-                            <span class="ml-6">ภาครัฐ</span>
-                        </li>
-                        <li class="sub-menu  pt-2">
-                            <span class="ml-6">สถานพยาบาล</span>
-                        </li>
-                        <li class="sub-menu  pt-2 text-title3 font-600 text-[var(--Primary-Main)]">
+                        <li class="sub-menu py-2"><span class="ml-6">การเช่าหรือซื้อขายอสังหาริมทรัพย์</span></li>
+                        <li class="sub-menu py-2"><span class="ml-6">บริการทางการเงิน</span></li>
+                        <li class="sub-menu py-2"><span class="ml-6">ประกันภัย</span></li>
+                        <li class="sub-menu py-2"><span class="ml-6">ภาครัฐ</span></li>
+                        <li class="sub-menu py-2"><span class="ml-6">สถานพยาบาล</span></li>
+                        <li class="sub-menu py-2 text-title3 font-600 text-[var(--Primary-Main)]">
                             <span class="ml-6">กลุ่มธุรกิจและอุตสาหกรรมทั้งหมด</span>
                             <font-awesome-icon icon="chevron-right" class="ml-4" />
                         </li>
@@ -83,30 +63,46 @@
         </transition>
     </ul>
 </template>
-  
-<script setup>
+
+<script setup lang="ts">
 import { ref } from 'vue'
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 import { faChevronUp, faChevronDown } from '@fortawesome/free-solid-svg-icons'
 
-const collapseState = ref({
+// Define the types for collapse state and icon state
+interface CollapseState {
+    'coll-setting': boolean
+    'coll-sub1': boolean
+    'coll-sub2': boolean
+}
+
+interface IconState {
+    'icon-setting': any
+    'icon-sub1': any
+    'icon-sub2': any
+}
+
+// Create reactive states with correct types
+const collapseState = ref<CollapseState>({
     'coll-setting': false,
     'coll-sub1': true,
     'coll-sub2': false
 })
 
-const iconState = ref({
+const iconState = ref<IconState>({
     'icon-setting': faChevronDown,
     'icon-sub1': faChevronUp,
     'icon-sub2': faChevronUp
 })
 
-const iconRotate = (iconId) => {
-    const sectionId = iconId.replace('icon-', 'coll-')
+// Function to rotate icons
+const iconRotate = (iconId: keyof IconState) => {
+    const sectionId = iconId.replace('icon-', 'coll-') as keyof CollapseState
     return collapseState.value[sectionId] ? 'rotate-180' : ''
 }
 
-const toggleCollapse = (sectionId, iconId) => {
+// Function to toggle collapsible sections and icons
+const toggleCollapse = (sectionId: keyof CollapseState, iconId: keyof IconState) => {
     collapseState.value[sectionId] = !collapseState.value[sectionId]
     iconState.value[iconId] = collapseState.value[sectionId] ? faChevronUp : faChevronDown
 
@@ -126,31 +122,32 @@ const toggleCollapse = (sectionId, iconId) => {
     }
 }
 
-const enter = (el) => {
+// Animation enter/leave functions with correct types
+const enter = (el: HTMLElement) => {
     el.style.maxHeight = '0px'
-    el.style.opacity = 0
+    el.style.opacity = '0'
     setTimeout(() => {
         el.style.maxHeight = el.scrollHeight + 'px'
-        el.style.opacity = 1
+        el.style.opacity = '1'
     }, 0)
 }
 
-const leave = (el) => {
+const leave = (el: HTMLElement) => {
     el.style.maxHeight = el.scrollHeight + 'px'
     setTimeout(() => {
         el.style.maxHeight = '0px'
-        el.style.opacity = 0
+        el.style.opacity = '0'
     }, 0)
 }
 </script>
-  
+
 <style scoped>
 * {
     font-size: var(--label4);
     cursor: pointer;
 }
 
-.sub-menu:hover{
+.sub-menu:hover {
     color: var(--Primary-Main);
     background: var(--Primary-Bg);
 }
@@ -160,19 +157,7 @@ const leave = (el) => {
     transition: max-height 0.3s ease, opacity 0.3s ease;
 }
 
-.fade-slide-enter-active,
-.fade-slide-leave-active {
-    transition: all 0.3s ease;
-}
-
-.fade-slide-enter,
-.fade-slide-leave-to {
-    transform: translateY(-10px);
-    opacity: 0;
-}
-
 .rotate-180 {
     transform: rotate(180deg);
 }
 </style>
-  

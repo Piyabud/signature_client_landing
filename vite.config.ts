@@ -1,7 +1,7 @@
 import { defineConfig } from 'vite';
 import vue from '@vitejs/plugin-vue';
 import { resolve, dirname } from "node:path";
-import { fileURLToPath } from 'node:url';
+import { fileURLToPath, URL } from 'node:url'
 import vuetify from 'vite-plugin-vuetify'
 
 // สำหรับ TypeScript อาจจะต้องใช้โค้ดนี้เพื่อให้ `__dirname` ทำงานได้
@@ -15,7 +15,7 @@ export default defineConfig({
   ],
   resolve: {
     alias: {
-      '@': resolve(__dirname, './src'),
-    },
+      '@': fileURLToPath(new URL('./src', import.meta.url)) // ตั้งค่า alias @ ไปยังโฟลเดอร์ src
+    }
   },
 });

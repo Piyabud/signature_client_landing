@@ -1,6 +1,5 @@
 <template>
-    <div class="customer-container md:gap-y-[2.5rem] md:px-[2.0625rem] md:py-[2.5rem] lg:px-[6rem]
-">
+    <div class="customer-container md:gap-y-[2.5rem] md:px-[2.0625rem] md:py-[2.5rem] lg:px-[6rem]">
         <div class="customer-title  text-headline4 text-[--Primary-Main] font-700 md:font-6000 md:text-display3">
             ลูกค้าที่ใช้บริการ Creden eSign
         </div>
@@ -15,28 +14,27 @@
     </div>
 </template>
 
-<script setup>
-const pathFile = "../../public/images/customers/";
 
+<script setup lang="ts">
 const imagePath = [
-    pathFile + "tai.png",
-    pathFile + "kasotosal.png",
-    pathFile + "pea.png",
-    pathFile + "pattanateedin.png",
-    pathFile + "thaibispa.png",
-    pathFile + "huasengheng.png",
-    pathFile + "BLA.png",
-    pathFile + "amway.png",
-    pathFile + "giffarine.png",
-    pathFile + "quickrissing.png",
-    pathFile + "SAM.png",
-    pathFile + "tvdirect.png",
-    pathFile + "Wisesight.png",
-    pathFile + "paysolution.png",
-    pathFile + "tarad.png",
-    pathFile + "AP.png",
-    pathFile + "cantralpattana.png",
-    pathFile + "NRCT.png",
+    new URL('@/../public/images/customers/tai.png', import.meta.url).href,
+    new URL('@/../public/images/customers/kasotosal.png', import.meta.url).href,
+    new URL('@/../public/images/customers/pea.png', import.meta.url).href,
+    new URL('@/../public/images/customers/pattanateedin.png', import.meta.url).href,
+    new URL('@/../public/images/customers/thaibispa.png', import.meta.url).href,
+    new URL('@/../public/images/customers/huasengheng.png', import.meta.url).href,
+    new URL('@/../public/images/customers/BLA.png', import.meta.url).href,
+    new URL('@/../public/images/customers/amway.png', import.meta.url).href,
+    new URL('@/../public/images/customers/giffarine.png', import.meta.url).href,
+    new URL('@/../public/images/customers/quickrissing.png', import.meta.url).href,
+    new URL('@/../public/images/customers/SAM.png', import.meta.url).href,
+    new URL('@/../public/images/customers/tvdirect.png', import.meta.url).href,
+    new URL('@/../public/images/customers/Wisesight.png', import.meta.url).href,
+    new URL('@/../public/images/customers/paysolution.png', import.meta.url).href,
+    new URL('@/../public/images/customers/tarad.png', import.meta.url).href,
+    new URL('@/../public/images/customers/AP.png', import.meta.url).href,
+    new URL('@/../public/images/customers/cantralpattana.png', import.meta.url).href,
+    new URL('@/../public/images/customers/NRCT.png', import.meta.url).href,
 ];
 </script>
 
@@ -56,7 +54,7 @@ img {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    row-gap: 1rem;
+    row-gap: 40px;
     padding: 2.5rem 1.125rem;
     background-color: var(--Light-4);
 
@@ -78,5 +76,13 @@ img {
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+@media (min-width: 1024px) {
+    .logos-grid {
+        grid-template-columns: repeat(9, minmax(0, 1fr)); /* 9 columns */
+        grid-template-rows: repeat(2, auto); /* 2 rows */
+        gap: 40px 1rem; /* 40px gap between rows and 1rem between columns */
+    }
 }
 </style>
