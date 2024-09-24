@@ -8,6 +8,11 @@ const routes = [
     name: 'Home',
     component: () => import('@/views/HomeView.vue')
   },
+  {
+    path: '/policy',
+    name: 'Policy',
+    component: () => import('@/views/Policy.vue')
+  },
 ];
 
 const router = createRouter({
