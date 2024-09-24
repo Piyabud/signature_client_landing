@@ -1,5 +1,5 @@
 <template>
-    <div class=" bg-[#C7E7FF]">
+    <div class=" bg-[#C7E7FF] ">
         <Navbar />
     </div>
     <div class="policy-content ">
@@ -15,9 +15,10 @@
                 <section v-if="collapseState['coll-setting']" class=" collapse-body overflow-hidden bg-[var(--Light-4)]">
                     <li v-for="(topic, index) in privacyPolicy.topics" :key="index" class="collapse-items">
                         <!-- <a :href="'#topic-' + (index + 1)" @click.prevent="handleClick(index)"> -->
-                        <a :href="'#topic-' + (index + 1)">
-                            {{ topic.title }}
-                        </a>
+                            <button
+                                @click="scrollToSection((index + 1) >= 9 && (index + 1) <= 11 ? 'topic-9' : 'topic-' + (index + 1))" class=" text-start">
+                                {{ topic.title }}
+                            </button>
                     </li>
                 </section>
             </transition>
@@ -28,11 +29,10 @@
                 <div class="hidden lg:block pc-policy">
                     <section class="flex flex-col gap-[16px]">
                         <div v-for="(topic, index) in privacyPolicy.topics" :key="index" class="collapse-items">
-                            <!-- <a :href="'#topic-' + (index + 1)" @click.prevent="preventScroll($event, index)" class=""> -->
-                                <!-- <a :href="'#topic-' + (index + 1)" @click.prevent="preventScroll" class=""> -->
-                            <a :href="'#topic-' + (index + 1)">
+                            <button
+                                @click="scrollToSection((index + 1) >= 8 && (index + 1) <= 11 ? 'topic-8' : 'topic-' + (index + 1))" class=" text-start">
                                 {{ topic.title }}
-                            </a>
+                            </button>
                         </div>
                     </section>
                 </div>
@@ -46,7 +46,7 @@
                         </div>
                     </section>
                     <section v-for="(topic, topicIndex) in privacyPolicy.topics" :key="topicIndex" class="topic-section">
-                        <div class="policy-topics my-4 scroll-offset" :id="'topic-' + (topicIndex + 1)">
+                        <div class="policy-topics my-4 " :id="'topic-' + (topicIndex + 1)">
                             {{ topicIndex + 1 }}. {{ topic.title }}
                         </div>
                         <div v-for="(desc, descIndex) in topic.description" :key="descIndex">
@@ -67,6 +67,9 @@
                 </div>
             </div>
         </div>
+        <button class="jump-to-top" @click="scrollToTop">
+            ↑
+        </button>
     </div>
 
     <FooterComponent />
@@ -91,12 +94,12 @@ const iconState = ref({
 })
 
 const toggleCollapse = (collapseKey, iconKey) => {
+    console.log(collapseKey);
     collapseState.value[collapseKey] = !collapseState.value[collapseKey]
     iconState.value[iconKey] = collapseState.value[collapseKey] ? 'chevron-up' : 'chevron-down'
 }
 
 const iconRotate = (iconKey) => {
-    console.log(1);
     return collapseState.value['coll-setting'] ? 'rotate-180' : ''
 }
 
@@ -134,14 +137,39 @@ const leave = (el) => {
     }, 0)
 }
 
+const scrollToSection = (sectionId) => {
+    const element = document.getElementById(sectionId);
+    if (element) {
+        element.scrollIntoView({
+            behavior: 'smooth',
+            block: 'start'
+        });
+    }
+};
+
+const scrollToTop = () => {
+    window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+    });
+};
 
 </script>
   
 <style scoped>
+
+.content {
+  user-select: none;
+  -webkit-user-select: none;
+  -moz-user-select: none; 
+  -ms-user-select: none; 
+}
+
 li {
     list-style: none;
 }
-.policy-content{
+
+.policy-content {
     background: linear-gradient(180deg, #C7E7FF 0%, #FFF 16.69%);
 }
 
@@ -174,15 +202,13 @@ li {
 
 .content {
     width: 100%;
-    height: 800px;
+    height: 900px;
     overflow-y: auto;
     padding: 10px;
     box-sizing: border-box;
+    /* border: 2px solid red */
 }
 
-.scroll-offset {
-    scroll-margin-top: 16px;
-}
 
 .collapse-mobile {
     font-size: var(--txt-title3-size);
@@ -239,7 +265,7 @@ li {
 }
 
 .content::-webkit-scrollbar-thumb {
-    background-color: var(--Darker-1);
+    background-color: var(--Blue-3);
     border-radius: 10px;
 }
 
@@ -248,6 +274,27 @@ li {
     border-radius: 20px;
     border: 1px solid var(--Light-0, #E6E6E6);
     box-shadow: 0px 0px 1px 0px rgba(40, 41, 61, 0.08), 0px 0.5px 2px 0px rgba(96, 97, 112, 0.16);
+}
+
+.jump-to-top {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;   
+    background-color: var(--Primary-Lighter); 
+    color: var(--Light-0); 
+    border: none; 
+    border-radius: 50%; 
+    width: 50px;   
+    height: 50px;  
+    font-size: 24px;
+    cursor: pointer; 
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+    z-index: 1000;
+    transition: background-color 0.3s; 
+}
+
+.jump-to-top:hover {
+    background-color:var(--Primary-Main); 
 }
 
 
@@ -264,6 +311,13 @@ li {
 }
 
 @media (min-width: 1024px) {
+    .content {
+    user-select: text;       
+    -webkit-user-select: text; 
+    -moz-user-select: text;  
+    -ms-user-select: text;  
+  }
+
 
     .policy-container {
         padding: 0px 33px 40px 33px;
