@@ -1,6 +1,4 @@
-// import { createRouter, createWebHistory, RouteRecordRaw } from 'vue-router'
 import { createRouter, createWebHistory } from 'vue-router';
-
 
 const routes = [
   {
@@ -12,6 +10,11 @@ const routes = [
     path: '/policy',
     name: 'Policy',
     component: () => import('@/views/Policy.vue')
+  },
+  {
+    path: '/term',
+    name: 'Term',
+    component: () => import('@/views/Termpage.vue')
   },
 ];
 
