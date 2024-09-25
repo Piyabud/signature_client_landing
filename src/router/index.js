@@ -14,7 +14,12 @@ const routes = [
   {
     path: '/term',
     name: 'Term',
-    component: () => import('@/views/Termpage.vue')
+    component: () => import('@/views/TermPages.vue')
+  },
+  {
+    path: '/contact',
+    name: 'contact',
+    component: () => import('@/views/ContactPages.vue')
   },
 ];
 
