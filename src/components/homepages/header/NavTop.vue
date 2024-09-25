@@ -180,7 +180,7 @@ const toggleMenuOpen = () => {
     if (isMenuOpen.value) {
         setTimeout(() => {
             isShadowVisible.value = false;
-        }, 450);
+        }, 300);
     } else {
         isShadowVisible.value = true;
     }
@@ -256,7 +256,7 @@ const toggleDropdown = () => {
     background: var(--Overlay-Gray);
     width: 100vw;
     height: 100vh;
-    transition: opacity 4s ease-in-out; /* เพิ่ม transition */
+    transition: opacity 4s ease-out; /* เพิ่ม transition */
     opacity: 1;
     z-index: 88;
 }
